@@ -7,6 +7,7 @@ export class Store<S> extends EventTarget {
 
     // dispatch an empty action so all reducers can initialize
     this.state = this.reducer(this.state, {})
+    this.dispatch = this.dispatch.bind(this)
   }
 
   dispatch(action: Action) {
